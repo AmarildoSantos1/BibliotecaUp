@@ -1,4 +1,4 @@
-# Definições das exceções
+#  exceções
 class UsuarioJaExisteException(Exception):
     def __init__(self, username):
         super().__init__(f"O usuário '{username}' já existe.")
@@ -15,7 +15,7 @@ class OpcaoInvalidaException(Exception):
     def __init__(self):
         super().__init__("Opção inválida. Por favor, tente novamente.")
 
-# Definição das classes principais
+#  classes 
 class Livro:
     def __init__(self, titulo, autor, ano, temas=None):
         self.titulo = titulo
@@ -111,7 +111,7 @@ class GrafoAutores:
         
         for outro_autor in self.grafo:
             if livro.autor != outro_autor:
-                # Supondo que livros com o mesmo tema estão relacionados
+                #  livros com o mesmo tema estão relacionados
                 if any(tema in livro.temas for tema in livro.temas):
                     self.grafo[livro.autor].add(outro_autor)
                     self.grafo[outro_autor].add(livro.autor)
@@ -248,6 +248,6 @@ class Biblioteca:
                 except (LivroNaoEncontradoException, OpcaoInvalidaException) as e:
                     print(e)
 
-# Inicializando a aplicação
+# Inicializar 
 biblioteca = Biblioteca()
 biblioteca.iniciar()
